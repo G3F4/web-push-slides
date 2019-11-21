@@ -1,6 +1,7 @@
 {
   "name": "web-push-slides",
   "version": "0.1.0",
+  "homepage": "https://g3f4-xyz.github.io/web-push-slides/",
   "dependencies": {
     "@types/jest": "24.0.23",
     "@types/node": "12.12.8",
