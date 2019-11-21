@@ -22,11 +22,12 @@ const theme = createTheme(
 );
 
 export default function Presentation() {
+  // 'slide' | 'zoom' | 'fade' | 'spin'
   return (
     <Deck
       theme={theme}
       transition={['zoom', 'slide']}
-      transitionDuration={500}
+      transitionDuration={1000}
     >
       <Slide bgColor="primary">
         <Heading caps fit lineHeight={1} size={1} textColor="secondary">
@@ -42,45 +43,45 @@ export default function Presentation() {
           What is Web Push?
         </Heading>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['slide']}>
         <Heading caps size={1}>
           Is it safe?
         </Heading>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['zoom']}>
         <Heading caps size={1} textColor="secondary">
           How it works?
         </Heading>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['spin']}>
         <Heading caps size={1}>
           Who supports it?
         </Heading>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['spin', 'slide']}>
         <Heading caps size={1} textColor="secondary">
           Is it free?
         </Heading>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade', 'zoom']}>
         <Heading caps size={1}>
           Wanna see it in action?
         </Heading>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['zoom', 'spin']}>
         <Heading caps size={1} textColor="secondary">
           How to enable notifications?
         </Heading>
         <button>ASK FOR PERMISSION</button>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade', 'slide', 'zoom']}>
         <Heading caps size={1}>
           Simplest notification is title only
         </Heading>
         <input placeholder="enter title" />
         <button>SEND</button>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['slide', 'spin']}>
         <Heading caps size={1} textColor="secondary">
           Notification body and icon
         </Heading>
@@ -93,7 +94,7 @@ export default function Presentation() {
         </select>
         <button>SEND</button>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'spin']}>
         <Heading caps size={1}>
           Wee can define actions too!
         </Heading>
@@ -111,13 +112,13 @@ export default function Presentation() {
         </select>
         <button>SEND</button>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'spin', 'slide']}>
         <Heading caps size={1}>
           Want more? Try my Web Push Generator!
         </Heading>
         <button>Try now!</button>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'spin', 'slide']}>
         <Heading caps size={1}>
           Questions?
         </Heading>
