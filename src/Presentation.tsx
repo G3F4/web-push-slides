@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Deck, Heading, Image, List, ListItem, Slide, Text } from 'spectacle';
 import createTheme from 'spectacle/lib/themes/default';
 
@@ -13,16 +13,36 @@ const theme = createTheme(
     primary: 'white',
     secondary: '#1F2022',
     tertiary: '#03A9FC',
-    quaternary: '#CECECE'
+    quaternary: '#CECECE',
   },
   {
     primary: 'Montserrat',
-    secondary: 'Helvetica'
-  }
+    secondary: 'Helvetica',
+  },
 );
 
+async function askForPermission() {
+  return await Notification.requestPermission();
+}
+
+function showNotification(title: string, options?: NotificationOptions) {
+  new Notification(title, options);
+}
+
 export default function Presentation() {
-  // 'slide' | 'zoom' | 'fade' | 'spin'
+  const [permission, setPermission] = useState(Notification.permission);
+  const [title, setTitle] = useState('');
+  const askForPermissionButtonLabels: Record<NotificationPermission, string> = {
+    granted: 'NOTIFICATIONS ENABLED!',
+    default: 'ASK FOR PERMISSION',
+    denied: 'NOTIFICATIONS DISABLED!',
+  };
+  const handleAskForPermission = async () => {
+    const permissionResult = await askForPermission();
+
+    setPermission(permissionResult);
+  };
+
   return (
     <Deck
       theme={theme}
@@ -72,14 +92,23 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           How to enable notifications?
         </Heading>
-        <button>ASK FOR PERMISSION</button>
+        <button onClick={handleAskForPermission}>
+          {askForPermissionButtonLabels[permission]}
+        </button>
+        {permission === 'denied' && (
+          <Text>
+            Change notifications permission in browser
+          </Text>
+        )}
       </Slide>
       <Slide bgColor="black" textColor="quaternary" transition={['fade', 'slide', 'zoom']}>
         <Heading caps size={1}>
           Simplest notification is title only
         </Heading>
-        <input placeholder="enter title" />
-        <button>SEND</button>
+        <input value={title} onChange={event => setTitle(event.target.value)} placeholder="enter title" />
+        <button onClick={() => {
+          showNotification(title);
+        }}>SEND</button>
       </Slide>
       <Slide bgColor="tertiary" textColor="tertiary" transition={['slide', 'spin']}>
         <Heading caps size={1} textColor="secondary">
@@ -116,13 +145,12 @@ export default function Presentation() {
         <Heading caps size={1}>
           Want more? Try my Web Push Generator!
         </Heading>
-        <button>Try now!</button>
+        <a href="https://web-push-generator.herokuapp.com/">Try now!</a>
       </Slide>
       <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'spin', 'slide']}>
         <Heading caps size={1}>
           Questions?
         </Heading>
-        <button>Try now!</button>
       </Slide>
       <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
@@ -133,7 +161,8 @@ export default function Presentation() {
             <a href="https://notifications.spec.whatwg.org/">Notifications API Living Standard</a>
           </ListItem>
           <ListItem>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API">Mozzila Notification Api & Support</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API">Mozzila Notification Api &
+              Support</a>
           </ListItem>
           <ListItem>
             <a href="https://web-push-generator.herokuapp.com/">Web Push Generator</a>
