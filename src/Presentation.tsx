@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Deck, Heading, Image, List, ListItem, Slide, Text } from 'spectacle';
+import {
+  Deck, Heading, Image, List, ListItem, Slide, Text,
+} from 'spectacle';
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
@@ -22,7 +24,7 @@ const theme = createTheme(
 );
 
 async function askForPermission() {
-  return await Notification.requestPermission();
+  await Notification.requestPermission();
 }
 
 function showNotification(title: string, options?: NotificationOptions) {
@@ -92,7 +94,7 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           How to enable notifications?
         </Heading>
-        <button onClick={handleAskForPermission}>
+        <button onClick={handleAskForPermission} type="button">
           {askForPermissionButtonLabels[permission]}
         </button>
         {permission === 'denied' && (
@@ -105,10 +107,16 @@ export default function Presentation() {
         <Heading caps size={1}>
           Simplest notification is title only
         </Heading>
-        <input value={title} onChange={event => setTitle(event.target.value)} placeholder="enter title" />
-        <button onClick={() => {
-          showNotification(title);
-        }}>SEND</button>
+        <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="enter title" />
+        <button
+          type="button"
+          onClick={() => {
+            showNotification(title);
+          }}
+        >
+SEND
+
+        </button>
       </Slide>
       <Slide bgColor="tertiary" textColor="tertiary" transition={['slide', 'spin']}>
         <Heading caps size={1} textColor="secondary">
@@ -121,7 +129,7 @@ export default function Presentation() {
           <option value="2">Family Guy</option>
           <option value="2">Bojack Horseman</option>
         </select>
-        <button>SEND</button>
+        <button type="button">SEND</button>
       </Slide>
       <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'spin']}>
         <Heading caps size={1}>
@@ -139,7 +147,7 @@ export default function Presentation() {
           <option value="2">Family Guy</option>
           <option value="2">Bojack Horseman</option>
         </select>
-        <button>SEND</button>
+        <button type="button">SEND</button>
       </Slide>
       <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'spin', 'slide']}>
         <Heading caps size={1}>
@@ -161,8 +169,11 @@ export default function Presentation() {
             <a href="https://notifications.spec.whatwg.org/">Notifications API Living Standard</a>
           </ListItem>
           <ListItem>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API">Mozzila Notification Api &
-              Support</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API">
+Mozzila Notification Api &
+              Support
+
+            </a>
           </ListItem>
           <ListItem>
             <a href="https://web-push-generator.herokuapp.com/">Web Push Generator</a>
@@ -177,52 +188,52 @@ export default function Presentation() {
           Thank You!
         </Heading>
       </Slide>
-      {/*<Slide bgColor="tertiary" transition={['fade']}>*/}
-      {/*  <Heading caps size={6} textColor="primary">*/}
-      {/*    Typography*/}
-      {/*  </Heading>*/}
-      {/*  <Heading size={1} textColor="secondary">*/}
-      {/*    Heading 1*/}
-      {/*  </Heading>*/}
-      {/*  <Heading size={2} textColor="secondary">*/}
-      {/*    Heading 2*/}
-      {/*  </Heading>*/}
-      {/*  <Heading size={3} textColor="secondary">*/}
-      {/*    Heading 3*/}
-      {/*  </Heading>*/}
-      {/*  <Heading size={4} textColor="secondary">*/}
-      {/*    Heading 4*/}
-      {/*  </Heading>*/}
-      {/*  <Heading size={5} textColor="secondary">*/}
-      {/*    Heading 5*/}
-      {/*  </Heading>*/}
-      {/*  <Text*/}
-      {/*    textColor="secondary"*/}
-      {/*  >*/}
-      {/*    Standard text*/}
-      {/*  </Text>*/}
-      {/*</Slide>*/}
-      {/*<Slide bgColor="primary" textColor="tertiary" transition={['fade']}>*/}
-      {/*  <Heading caps size={6} textColor="secondary">*/}
-      {/*    Standard List*/}
-      {/*  </Heading>*/}
-      {/*  <List>*/}
-      {/*    <ListItem bulletStyle="star">Item 1</ListItem>*/}
-      {/*    <ListItem bulletStyle="cross">Item 2</ListItem>*/}
-      {/*    <ListItem>Item 3</ListItem>*/}
-      {/*    <ListItem>Item 4</ListItem>*/}
-      {/*  </List>*/}
-      {/*</Slide>*/}
-      {/*<Slide bgColor="secondary" textColor="primary" transition={['fade']}>*/}
-      {/*  <BlockQuote>*/}
-      {/*    <Quote>Example Quote</Quote>*/}
-      {/*    <Cite margin="10px 0 0 30px">Author</Cite>*/}
-      {/*  </BlockQuote>*/}
-      {/*</Slide>*/}
-      {/*<Slide>*/}
-      {/*  <Image src={images.gif} width={500} />*/}
-      {/*  <Notes>gifs work too</Notes>*/}
-      {/*</Slide>*/}
+      {/* <Slide bgColor="tertiary" transition={['fade']}> */}
+      {/*  <Heading caps size={6} textColor="primary"> */}
+      {/*    Typography */}
+      {/*  </Heading> */}
+      {/*  <Heading size={1} textColor="secondary"> */}
+      {/*    Heading 1 */}
+      {/*  </Heading> */}
+      {/*  <Heading size={2} textColor="secondary"> */}
+      {/*    Heading 2 */}
+      {/*  </Heading> */}
+      {/*  <Heading size={3} textColor="secondary"> */}
+      {/*    Heading 3 */}
+      {/*  </Heading> */}
+      {/*  <Heading size={4} textColor="secondary"> */}
+      {/*    Heading 4 */}
+      {/*  </Heading> */}
+      {/*  <Heading size={5} textColor="secondary"> */}
+      {/*    Heading 5 */}
+      {/*  </Heading> */}
+      {/*  <Text */}
+      {/*    textColor="secondary" */}
+      {/*  > */}
+      {/*    Standard text */}
+      {/*  </Text> */}
+      {/* </Slide> */}
+      {/* <Slide bgColor="primary" textColor="tertiary" transition={['fade']}> */}
+      {/*  <Heading caps size={6} textColor="secondary"> */}
+      {/*    Standard List */}
+      {/*  </Heading> */}
+      {/*  <List> */}
+      {/*    <ListItem bulletStyle="star">Item 1</ListItem> */}
+      {/*    <ListItem bulletStyle="cross">Item 2</ListItem> */}
+      {/*    <ListItem>Item 3</ListItem> */}
+      {/*    <ListItem>Item 4</ListItem> */}
+      {/*  </List> */}
+      {/* </Slide> */}
+      {/* <Slide bgColor="secondary" textColor="primary" transition={['fade']}> */}
+      {/*  <BlockQuote> */}
+      {/*    <Quote>Example Quote</Quote> */}
+      {/*    <Cite margin="10px 0 0 30px">Author</Cite> */}
+      {/*  </BlockQuote> */}
+      {/* </Slide> */}
+      {/* <Slide> */}
+      {/*  <Image src={images.gif} width={500} /> */}
+      {/*  <Notes>gifs work too</Notes> */}
+      {/* </Slide> */}
     </Deck>
   );
 }

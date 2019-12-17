@@ -62,6 +62,7 @@ typings/
 
 #ide
 .idea
+.vscode
 
 #build
 build

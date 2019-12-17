@@ -10,6 +10,7 @@
     "normalize.css": "8.0.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
+    "spectacle": "6.0.0-alpha.3",
     "spectacle-scripts": "2.4.0",
     "typescript": "3.7.2"
   },
@@ -21,9 +22,6 @@
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -31,10 +29,20 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "2.8.0",
-    "@typescript-eslint/parser": "2.8.0",
+    "@typescript-eslint/eslint-plugin": "2.10.0",
+    "@typescript-eslint/parser": "2.10.0",
+    "eslint": "6.7.2",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-airbnb-typescript": "6.3.1",
     "eslint-config-prettier": "6.7.0",
-    "eslint-plugin-prettier": "3.1.1",
-    "prettier": "1.19.1"
+    "eslint-import-resolver-typescript": "2.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-json": "2.0.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.17.0",
+    "eslint-plugin-react-hooks": "1.7.0",
+    "prettier": "1.19.1",
+    "prop-types": "15.6.2"
   }
 }
