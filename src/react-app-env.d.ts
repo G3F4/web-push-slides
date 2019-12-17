@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-len
-/* eslint-disable react/prefer-stateless-function,@typescript-eslint/no-empty-interface,max-classes-per-file */
+/* eslint-disable react/prefer-stateless-function,@typescript-eslint/no-empty-interface,max-classes-per-file,@typescript-eslint/no-unused-vars,@typescript-eslint/no-explicit-any */
 // / <reference types="react-scripts" />
 
 declare const process: Record<string, any>;
