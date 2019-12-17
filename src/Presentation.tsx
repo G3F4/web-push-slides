@@ -77,12 +77,12 @@ export default function Presentation() {
           How it works?
         </Heading>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['spin']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
         <Heading caps size={1}>
           Who supports it?
         </Heading>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['spin', 'slide']}>
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade', 'slide']}>
         <Heading caps size={1} textColor="secondary">
           Is it free?
         </Heading>
@@ -92,7 +92,7 @@ export default function Presentation() {
           Wanna see it in action?
         </Heading>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['zoom', 'spin']}>
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['zoom', 'fade']}>
         <Heading caps size={1} textColor="secondary">
           How to enable notifications?
         </Heading>
@@ -116,11 +116,10 @@ export default function Presentation() {
             showNotification(title);
           }}
         >
-SEND
-
+          SEND
         </button>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['slide', 'spin']}>
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['slide', 'fade']}>
         <Heading caps size={1} textColor="secondary">
           Notification body and icon
         </Heading>
@@ -133,7 +132,7 @@ SEND
         </select>
         <button type="button">SEND</button>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'spin']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade']}>
         <Heading caps size={1}>
           Wee can define actions too!
         </Heading>
@@ -151,13 +150,13 @@ SEND
         </select>
         <button type="button">SEND</button>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'spin', 'slide']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'slide']}>
         <Heading caps size={1}>
           Want more? Try my Web Push Generator!
         </Heading>
         <a href="https://web-push-generator.herokuapp.com/">Try now!</a>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'spin', 'slide']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'slide']}>
         <Heading caps size={1}>
           Questions?
         </Heading>
@@ -172,9 +171,7 @@ SEND
           </ListItem>
           <ListItem>
             <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API">
-Mozzila Notification Api &
-              Support
-
+              Mozzila Notification Api & Support
             </a>
           </ListItem>
           <ListItem>
