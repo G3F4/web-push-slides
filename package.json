@@ -10,7 +10,7 @@
     "normalize.css": "8.0.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "spectacle": "6.0.0-alpha.3",
+    "spectacle": "5.7.2",
     "spectacle-scripts": "2.4.0",
     "typescript": "3.7.2"
   },
@@ -31,9 +31,9 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "2.10.0",
     "@typescript-eslint/parser": "2.10.0",
-    "eslint": "6.7.2",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "18.0.1",
-    "eslint-config-airbnb-typescript": "6.3.1",
+    "eslint-config-airbnb-typescript": "5.1.0",
     "eslint-config-prettier": "6.7.0",
     "eslint-import-resolver-typescript": "2.0.0",
     "eslint-plugin-import": "2.18.2",

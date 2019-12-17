@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import {
   Deck, Heading, Image, List, ListItem, Slide, Text,
 } from 'spectacle';
+// eslint-disable-next-line import/no-unresolved
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
@@ -24,7 +26,7 @@ const theme = createTheme(
 );
 
 async function askForPermission() {
-  await Notification.requestPermission();
+  return Notification.requestPermission();
 }
 
 function showNotification(title: string, options?: NotificationOptions) {
