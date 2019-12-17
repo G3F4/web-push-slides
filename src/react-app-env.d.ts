@@ -304,6 +304,8 @@ declare module 'spectacle' {
 
   class ListItem extends React.Component<ListProps> {}
 
+  class Magic extends React.Component {}
+
   class Markdown extends React.Component<MarkdownProps> {}
 
   class Notes extends React.Component<BaseProps> {}

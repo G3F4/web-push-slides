@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import {
-  Deck, Heading, Image, List, ListItem, Slide, Text,
+  Deck, Heading, Image, List, ListItem, Slide, Text
 } from 'spectacle';
 // eslint-disable-next-line import/no-unresolved
 import createTheme from 'spectacle/lib/themes/default';
@@ -67,20 +67,65 @@ export default function Presentation() {
           What is Web Push?
         </Heading>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['slide']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
         <Heading caps size={1}>
           Is it safe?
         </Heading>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['zoom']}>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={3} textColor="tertiary">
+          Is it safe?
+        </Heading>
+        <List>
+          <ListItem>
+            SSL
+          </ListItem>
+          <ListItem>
+            P-256 - elliptic curve Diffie-Hellman (ECDH)
+          </ListItem>
+        </List>
+      </Slide>
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           How it works?
         </Heading>
+      </Slide>
+      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          How it works?
+        </Heading>
+        <List>
+          <ListItem>
+            HTTP2
+          </ListItem>
+          <ListItem>
+            PUBLISHER/SUBSCRIBER MODEL
+          </ListItem>
+        </List>
       </Slide>
       <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
         <Heading caps size={1}>
           Who supports it?
         </Heading>
+      </Slide>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={3} textColor="tertiary">
+          Who supports it?
+        </Heading>
+        <List>
+          <ListItem>
+            Chrome and family (mostly)
+          </ListItem>
+          <ListItem>
+            Firefox (partial)
+          </ListItem>
+          <ListItem>
+            Safari (own API)
+          </ListItem>
+          <ListItem>
+            Samsung Internet Browser (all?)
+          </ListItem>
+        </List>
       </Slide>
       <Slide bgColor="tertiary" textColor="tertiary" transition={['fade', 'slide']}>
         <Heading caps size={1} textColor="secondary">
