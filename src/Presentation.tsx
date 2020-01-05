@@ -21,6 +21,7 @@ const images = {
   askForPermission4: 'ask-for-permission4.svg',
   curiosity: 'curiosity.png',
   server: 'server.svg',
+  behaviour: 'behaviour.png',
   sendMessage: 'send-message.svg',
   sendNotification1: 'send-notification1.svg',
   sendNotification2: 'send-notification2.svg',
@@ -122,12 +123,12 @@ export default function Presentation() {
         </List>
       </Slide>
 
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
         <Heading caps size={1}>
           Who supports it?
         </Heading>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
         <Heading caps size={3} textColor="tertiary">
           Who supports it?
         </Heading>
@@ -167,13 +168,13 @@ export default function Presentation() {
         </List>
       </Slide>
 
-      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           How it works?
         </Heading>
         <Image src={images.howItWorks} width="400" />
       </Slide>
-      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           How it works?
         </Heading>
@@ -216,7 +217,7 @@ export default function Presentation() {
         </List>
       </Slide>
 
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="tertiary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           Enable notifications?
         </Heading>
@@ -230,7 +231,7 @@ export default function Presentation() {
         )}
       </Slide>
 
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="tertiary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           Subscription object
         </Heading>
@@ -309,34 +310,82 @@ export default function Presentation() {
       </Slide>
 
       <Slide bgColor="tertiary" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
-          Simplest notification is title only
-        </Heading>
-        <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="enter title" />
-        <button
-          type="button"
-          onClick={() => {
-            showNotification(title);
-          }}
-        >
-          SEND
-        </button>
+        {permission !== 'granted' ? (
+          <Heading caps size={1} textColor="secondary">
+            Notifications are not allowed
+          </Heading>
+        ) : (
+          <>
+            <Heading caps size={1} textColor="secondary">
+              Simplest notification is title only
+            </Heading>
+            <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="enter title" />
+            <button
+              type="button"
+              onClick={() => {
+                showNotification(title);
+              }}
+            >
+              SEND
+            </button>
+          </>
+        )}
       </Slide>
       <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
-          Notification body and icon
-        </Heading>
-        <input placeholder="enter body" />
-        <select>
-          <option>Pick icon</option>
-          <option value="1">Rick & Morty</option>
-          <option value="2">Family Guy</option>
-          <option value="2">Bojack Horseman</option>
-        </select>
-        <button type="button">SEND</button>
+        {permission !== 'granted' ? (
+          <Heading caps size={1} textColor="secondary">
+            Notifications are not allowed
+          </Heading>
+        ) : (
+          <>
+            <Heading caps size={1} textColor="secondary">
+              Notification body and icon
+            </Heading>
+            <input placeholder="enter body" />
+            <select>
+              <option>Pick icon</option>
+              <option value="1">Rick & Morty</option>
+              <option value="2">Family Guy</option>
+              <option value="2">Bojack Horseman</option>
+            </select>
+            <button type="button">SEND</button>
+          </>
+        )}
       </Slide>
 
-      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          Notifications behaviours
+        </Heading>
+        <Image src={images.behaviour} width="400" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          Notifications behaviours
+        </Heading>
+        <List>
+          <ListItem bold>
+            Notification click
+          </ListItem>
+          <ListItem bold>
+            Action click
+          </ListItem>
+          <ListItem bold>
+            Refresh hanging notification
+          </ListItem>
+          <ListItem bold>
+            Silent
+          </ListItem>
+          <ListItem bold>
+            Vibrations
+          </ListItem>
+          <ListItem bold>
+            Requiring interaction
+          </ListItem>
+        </List>
+      </Slide>
+
+      <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           Ok, what i can do with it?
         </Heading>
@@ -371,36 +420,36 @@ export default function Presentation() {
 
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
-          When notification is send
+          Sending notification
         </Heading>
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          When notification is send
+          Sending notification
         </Heading>
         <Image src={images.sendNotification1} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          When notification is send
+          Sending notification
         </Heading>
         <Image src={images.sendNotification2} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          When notification is send
+          Sending notification
         </Heading>
         <Image src={images.sendNotification3} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          When notification is send
+          Sending notification
         </Heading>
         <Image src={images.sendNotification4} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          When notification is send
+          Sending notification
         </Heading>
         <Image src={images.sendNotification5} width="100%" />
       </Slide>
@@ -448,17 +497,17 @@ export default function Presentation() {
         </List>
       </Slide>
 
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
         <Heading caps size={1}>
           Last but not least ...
         </Heading>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
         <Heading caps size={1}>
           ... how not to annoy people
         </Heading>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+      <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
         <Heading caps size={3} textColor="tertiary">
           Do not:
         </Heading>
