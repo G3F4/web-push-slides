@@ -155,7 +155,7 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           Is it free?
         </Heading>
-        <Image src={images.isItFree} width="400" />
+        <Image src={images.isItFree} width="33%" />
       </Slide>
       <Slide bgColor="tertiary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
@@ -185,7 +185,7 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           How it works?
         </Heading>
-        <Image src={images.howItWorks} width="400" />
+        <Image src={images.howItWorks} width="33%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
@@ -259,31 +259,36 @@ export default function Presentation() {
         <Heading caps size={3} textColor="secondary">
           What just happend?
         </Heading>
+        <br />
         <Image src={images.askForPermission1} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           What just happend?
         </Heading>
+        <br />
         <Image src={images.askForPermission2} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           What just happend?
         </Heading>
+        <br />
         <Image src={images.askForPermission3} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           What just happend?
         </Heading>
+        <br />
         <Image src={images.askForPermission4} width="100%" />
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading caps size={3} textColor="secondary">
           Subscription object
         </Heading>
+        <br />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <div style={{ textAlign: 'left' }}>
             <Code>
@@ -325,7 +330,7 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           See it in action
         </Heading>
-        <Image src={images.action} width="400" />
+        <Image src={images.action} width="33%" />
       </Slide>
 
       <Slide bgColor="tertiary" textColor="quaternary" transition={['fade']}>
@@ -335,9 +340,10 @@ export default function Presentation() {
           </Heading>
         ) : (
           <>
-            <Heading caps size={1} textColor="secondary">
+            <Heading caps size={3} textColor="secondary">
               Simplest notification is title only
             </Heading>
+            <br />
             <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="enter title" />
             <button
               type="button"
@@ -357,9 +363,10 @@ export default function Presentation() {
           </Heading>
         ) : (
           <>
-            <Heading caps size={1} textColor="secondary">
+            <Heading caps size={3} textColor="secondary">
               Notification body and icon
             </Heading>
+            <br />
             <input placeholder="enter body" />
             <select>
               <option>Pick icon</option>
@@ -376,7 +383,7 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           Notifications behaviours
         </Heading>
-        <Image src={images.behaviour} width="400" />
+        <Image src={images.behaviour} width="33%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
@@ -408,14 +415,14 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           Ok, what i can do with it?
         </Heading>
-        <Image src={images.curiosity} width="400" />
+        <Image src={images.curiosity} width="33%" />
       </Slide>
 
       <Slide bgColor="quaternary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           Save it to server for future use
         </Heading>
-        <Image src={images.server} width="400" />
+        <Image src={images.server} width="33%" />
       </Slide>
       <Slide bgColor="quaternary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
@@ -446,30 +453,35 @@ export default function Presentation() {
         <Heading caps size={3} textColor="secondary">
           Sending notification
         </Heading>
+        <br />
         <Image src={images.sendNotification1} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           Sending notification
         </Heading>
+        <br />
         <Image src={images.sendNotification2} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           Sending notification
         </Heading>
+        <br />
         <Image src={images.sendNotification3} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           Sending notification
         </Heading>
+        <br />
         <Image src={images.sendNotification4} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           Sending notification
         </Heading>
+        <br />
         <Image src={images.sendNotification5} width="100%" />
       </Slide>
 
@@ -477,7 +489,7 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           What about security?
         </Heading>
-        <Image src={images.isItSafe} width="400" />
+        <Image src={images.isItSafe} width="33%" />
       </Slide>
       <Slide bgColor="quaternary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
@@ -500,7 +512,7 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           Tips after many adventures
         </Heading>
-        <Image src={images.server} width="400" />
+        <Image src={images.server} width="33%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
@@ -582,14 +594,14 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           Questions?
         </Heading>
-        <Image src={images.questions} width="400" />
+        <Image src={images.questions} width="33%" />
       </Slide>
 
       <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           Thank You!
         </Heading>
-        <Image src={images.heart} width="400" />
+        <Image src={images.heart} width="33%" />
       </Slide>
     </Deck>
   );
