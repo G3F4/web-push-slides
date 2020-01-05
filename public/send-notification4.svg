@@ -12,7 +12,7 @@
    height="170"
    version="1.1"
    id="svg1894"
-   sodipodi:docname="send-message.svg"
+   sodipodi:docname="send-notification4.svg"
    inkscape:version="1.0beta2 (2b71d25, 2019-12-03)">
   <metadata
      id="metadata1900">
@@ -39,14 +39,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1054"
+     inkscape:window-height="1080"
      id="namedview1896"
      showgrid="false"
      inkscape:zoom="1.4470734"
      inkscape:cx="487.7382"
      inkscape:cy="159.466"
      inkscape:window-x="0"
-     inkscape:window-y="26"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg1894" />
   <path
@@ -264,38 +264,6 @@
          r="1" />
     </g>
   </g>
-  <g
-     transform="matrix(2.2280035,0,0,2.354696,688.26917,14.435738)"
-     id="g4400">
-    <g
-       id="g4402">
-      <path
-         d="M 21.9,27 H 2.1 C 0.9,27 0,26 0,24.9 0,24.6 0.1,24.3 0.2,24 0.8,22.7 3.8,16 3.8,10.5 3.8,5.8 7.5,2 12,2 c 4.5,0 8.2,3.8 8.2,8.5 0,5.4 3,12.2 3.6,13.5 0.1,0.3 0.2,0.6 0.2,0.9 C 24,26 23.1,27 21.9,27 Z M 12,3 C 8,3 4.8,6.4 4.8,10.5 4.8,16 2,22.5 1.1,24.4 1,24.5 1,24.7 1,24.9 1,25.5 1.5,26 2.1,26 H 22 c 0.6,0 1.1,-0.5 1.1,-1.1 0,-0.2 0,-0.3 -0.1,-0.5 C 22.1,22.5 19.3,16 19.3,10.5 19.2,6.4 16,3 12,3 Z"
-         id="path4404"
-         inkscape:connector-curvature="0" />
-    </g>
-    <g
-       id="g4406">
-      <path
-         d="M 2.8,24.9 H 2.6 C 2.3,24.8 2.2,24.5 2.3,24.2 3.4,21.8 5.8,15.7 5.8,10.5 5.8,7 8.6,4.1 12,4.1 c 0.3,0 0.5,0.2 0.5,0.5 0,0.3 -0.2,0.5 -0.5,0.5 -2.8,0 -5.2,2.4 -5.2,5.4 0,5.4 -2.5,11.7 -3.6,14.1 -0.1,0.2 -0.2,0.3 -0.4,0.3 z"
-         id="path4408"
-         inkscape:connector-curvature="0" />
-    </g>
-    <g
-       id="g4410">
-      <path
-         d="M 12,30 C 9.8,30 8,28.4 8,26.5 8,26.2 8.2,26 8.5,26 8.8,26 9,26.2 9,26.5 c 0,1.4 1.3,2.5 3,2.5 1.7,0 3,-1.1 3,-2.5 0,-0.3 0.2,-0.5 0.5,-0.5 0.3,0 0.5,0.2 0.5,0.5 0,1.9 -1.8,3.5 -4,3.5 z"
-         id="path4412"
-         inkscape:connector-curvature="0" />
-    </g>
-    <g
-       id="g4422">
-      <path
-         d="M 14.5,3.5 C 14.2,3.5 14,3.3 14,3 14,1.9 13.1,1 12,1 10.9,1 10,1.9 10,3 10,3.3 9.8,3.5 9.5,3.5 9.2,3.5 9,3.3 9,3 9,1.3 10.3,0 12,0 c 1.7,0 3,1.3 3,3 0,0.3 -0.2,0.5 -0.5,0.5 z"
-         id="path4424"
-         inkscape:connector-curvature="0" />
-    </g>
-  </g>
   <path
      inkscape:connector-curvature="0"
      id="path1862-7"
@@ -307,12 +275,6 @@
      id="path1862-1"
      fill="#231f20"
      d="m 441.17075,79.915154 c -0.174,0 -0.524,0 -0.7,-0.175 a 0.846,0.846 0 0 1 0,-1.225 l 23.967,-23.96599 -23.966,-23.791 a 0.846,0.846 0 0 1 0,-1.225 0.846,0.846 0 0 1 1.225,0 l 24.49,24.491 c 0.35,0.35 0.35,0.875 0,1.225 l -24.49,24.48999 c 0,0.176 -0.35,0.176 -0.525,0.176 z"
-     class="st0" />
-  <path
-     inkscape:connector-curvature="0"
-     id="path1862-74"
-     fill="#231f20"
-     d="m 641.57523,78.533063 c -0.174,0 -0.524,0 -0.7,-0.175 a 0.846,0.846 0 0 1 0,-1.225 l 23.967,-23.966 -23.966,-23.791 a 0.846,0.846 0 0 1 0,-1.225 0.846,0.846 0 0 1 1.225,0 l 24.49,24.491 c 0.35,0.35 0.35,0.875 0,1.225 l -24.49,24.49 c 0,0.176 -0.35,0.176 -0.525,0.176 z"
      class="st0" />
   <text
      xml:space="preserve"
@@ -342,18 +304,4 @@
        x="480.27972"
        y="134.71431"
        id="tspan5679">service worker</tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-     x="641.98541"
-     y="115.40534"
-     id="text5683"><tspan
-       sodipodi:role="line"
-       id="tspan5681"
-       x="641.98541"
-       y="115.40534">5. Service worker</tspan><tspan
-       sodipodi:role="line"
-       x="641.98541"
-       y="135.40533"
-       id="tspan5685">displays notification</tspan></text>
 </svg>

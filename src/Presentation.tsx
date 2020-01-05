@@ -15,9 +15,18 @@ const images = {
   action: 'action.png',
   howItWorks: 'how-it-works.svg',
   askForPermission: 'ask-for-permission.svg',
+  askForPermission1: 'ask-for-permission1.svg',
+  askForPermission2: 'ask-for-permission2.svg',
+  askForPermission3: 'ask-for-permission3.svg',
+  askForPermission4: 'ask-for-permission4.svg',
   curiosity: 'curiosity.png',
   server: 'server.svg',
   sendMessage: 'send-message.svg',
+  sendNotification1: 'send-notification1.svg',
+  sendNotification2: 'send-notification2.svg',
+  sendNotification3: 'send-notification3.svg',
+  sendNotification4: 'send-notification4.svg',
+  sendNotification5: 'send-notification5.svg',
 };
 
 require('normalize.css');
@@ -91,6 +100,22 @@ export default function Presentation() {
           </ListItem>
           <ListItem>
             Technology
+          </ListItem>
+        </List>
+      </Slide>
+      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          And what are it&apos;s parts?
+        </Heading>
+        <List>
+          <ListItem>
+            External service from browser provider
+          </ListItem>
+          <ListItem>
+            Browser with service worker
+          </ListItem>
+          <ListItem>
+            Server application
           </ListItem>
         </List>
       </Slide>
@@ -215,11 +240,29 @@ export default function Presentation() {
         </div>
       </Slide>
 
-      <Slide bgColor="primary">
+      <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           What just happend?
         </Heading>
-        <Image src={images.askForPermission} width="100%" />
+        <Image src={images.askForPermission1} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          What just happend?
+        </Heading>
+        <Image src={images.askForPermission2} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          What just happend?
+        </Heading>
+        <Image src={images.askForPermission3} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          What just happend?
+        </Heading>
+        <Image src={images.askForPermission4} width="100%" />
       </Slide>
 
       <Slide bgColor="black" textColor="quaternary" transition={['fade', 'slide', 'zoom']}>
@@ -264,12 +307,55 @@ export default function Presentation() {
         </Heading>
         <Image src={images.server} width="400" />
       </Slide>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={3} textColor="tertiary">
+          Usages
+        </Heading>
+        <List>
+          <ListItem>
+            Notify about new content
+          </ListItem>
+          <ListItem>
+            Increase engagement
+          </ListItem>
+          <ListItem>
+            Alerts
+          </ListItem>
+          <ListItem>
+            Advertisement
+          </ListItem>
+        </List>
+      </Slide>
 
-      <Slide bgColor="primary">
+      <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           When notification is send
         </Heading>
-        <Image src={images.sendMessage} width="100%" />
+        <Image src={images.sendNotification1} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          When notification is send
+        </Heading>
+        <Image src={images.sendNotification2} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          When notification is send
+        </Heading>
+        <Image src={images.sendNotification3} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          When notification is send
+        </Heading>
+        <Image src={images.sendNotification4} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          When notification is send
+        </Heading>
+        <Image src={images.sendNotification5} width="100%" />
       </Slide>
 
       <Slide bgColor="primary" textColor="quaternary" transition={['fade']}>
