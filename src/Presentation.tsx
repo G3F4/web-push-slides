@@ -145,6 +145,9 @@ export default function Presentation() {
           <ListItem bold>
             Samsung Internet Browser (all?)
           </ListItem>
+          <ListItem bold>
+            Others and more supporting in future
+          </ListItem>
         </List>
       </Slide>
 
@@ -160,10 +163,20 @@ export default function Presentation() {
         </Heading>
         <List>
           <ListItem bold>
-            Non-persistent
+            Non-persistent (without service worker)
+            <br />
+            <Code>
+              new Notification(title, options);
+            </Code>
+            <br />
+            <br />
           </ListItem>
           <ListItem bold>
             Persistent
+            <br />
+            <Code>
+              registration.showNotification(title, options);
+            </Code>
           </ListItem>
         </List>
       </Slide>
@@ -221,6 +234,7 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           Enable notifications?
         </Heading>
+        <br />
         <button onClick={handleAskForPermission} type="button">
           {askForPermissionButtonLabels[permission]}
         </button>
@@ -229,6 +243,41 @@ export default function Presentation() {
             Change notifications permission in browser
           </Text>
         )}
+        <br />
+        <br />
+        <Code>
+          await Notification.requestPermission();
+        </Code>
+      </Slide>
+
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          What just happend?
+        </Heading>
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          What just happend?
+        </Heading>
+        <Image src={images.askForPermission1} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          What just happend?
+        </Heading>
+        <Image src={images.askForPermission2} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          What just happend?
+        </Heading>
+        <Image src={images.askForPermission3} width="100%" />
+      </Slide>
+      <Slide bgColor="primary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          What just happend?
+        </Heading>
+        <Image src={images.askForPermission4} width="100%" />
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
@@ -270,36 +319,6 @@ export default function Presentation() {
             </Code>
           </div>
         </div>
-      </Slide>
-
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
-          What just happend?
-        </Heading>
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          What just happend?
-        </Heading>
-        <Image src={images.askForPermission1} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          What just happend?
-        </Heading>
-        <Image src={images.askForPermission2} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          What just happend?
-        </Heading>
-        <Image src={images.askForPermission3} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          What just happend?
-        </Heading>
-        <Image src={images.askForPermission4} width="100%" />
       </Slide>
 
       <Slide bgColor="quaternary" transition={['fade']}>
@@ -470,6 +489,9 @@ export default function Presentation() {
           </ListItem>
           <ListItem bold>
             VAPID
+          </ListItem>
+          <ListItem bold>
+            Time expiration
           </ListItem>
         </List>
       </Slide>
