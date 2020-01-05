@@ -1,15 +1,15 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import {
-  Code, Deck, Heading, Image, List, ListItem, Slide, Text, CodePane,
+  Code, Deck, Heading, Image, List, ListItem, Slide, Text,
 } from 'spectacle';
 // eslint-disable-next-line import/no-unresolved
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
   cover: 'cover.jpg',
+  whatIsWebPush: 'what-is-web-push2.gif',
   permissionPrompt: 'permission-prompt.png',
-  whatIsWebPush: 'what-is-web-push.gif',
   isItFree: 'is-it-free.png',
   isItSafe: 'security.svg',
   action: 'action.png',
@@ -27,6 +27,8 @@ const images = {
   sendNotification3: 'send-notification3.svg',
   sendNotification4: 'send-notification4.svg',
   sendNotification5: 'send-notification5.svg',
+  heart: 'heart.png',
+  questions: 'questions.svg',
 };
 
 require('normalize.css');
@@ -81,13 +83,13 @@ export default function Presentation() {
           Czyli z czym się je powiadomienia WebPush
         </Text>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           What is Web Push?
         </Heading>
         <Image src={images.whatIsWebPush} width="100%" />
       </Slide>
-      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+      <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           What is Web Push?
         </Heading>
@@ -152,6 +154,26 @@ export default function Presentation() {
         <Image src={images.isItFree} width="400" />
       </Slide>
 
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          How it works?
+        </Heading>
+        <Image src={images.howItWorks} width="400" />
+      </Slide>
+      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          How it works?
+        </Heading>
+        <List>
+          <ListItem>
+            HTTP2
+          </ListItem>
+          <ListItem>
+            PUBLISHER/SUBSCRIBER MODEL
+          </ListItem>
+        </List>
+      </Slide>
+
       <Slide bgColor="primary" transition={['fade', 'zoom']}>
         <Heading caps size={1} textColor="secondary">
           See it in action
@@ -159,7 +181,7 @@ export default function Presentation() {
         <Image src={images.action} width="400" />
       </Slide>
 
-      <Slide bgColor="primary">
+      <Slide bgColor="tertiary">
         <Heading caps size={1} textColor="secondary">
           Permission first
         </Heading>
@@ -329,7 +351,7 @@ export default function Presentation() {
 
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
-          When notification is send
+          When notification is send ...
         </Heading>
         <Image src={images.sendNotification1} width="100%" />
       </Slide>
@@ -360,13 +382,13 @@ export default function Presentation() {
 
       <Slide bgColor="primary" textColor="quaternary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
-          Is it safe?
+          What about security?
         </Heading>
         <Image src={images.isItSafe} width="400" />
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={3} textColor="tertiary">
-          Is it safe?
+      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          What about security?
         </Heading>
         <List>
           <ListItem>
@@ -374,26 +396,6 @@ export default function Presentation() {
           </ListItem>
           <ListItem>
             VAPID
-          </ListItem>
-        </List>
-      </Slide>
-
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
-          How it works?
-        </Heading>
-        <Image src={images.howItWorks} width="400" />
-      </Slide>
-      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          How it works?
-        </Heading>
-        <List>
-          <ListItem>
-            HTTP2
-          </ListItem>
-          <ListItem>
-            PUBLISHER/SUBSCRIBER MODEL
           </ListItem>
         </List>
       </Slide>
@@ -420,7 +422,7 @@ export default function Presentation() {
             Send spam
           </ListItem>
           <ListItem>
-            Too often notifications
+            Notify too often
           </ListItem>
         </List>
       </Slide>
@@ -430,12 +432,6 @@ export default function Presentation() {
           Want more? Try my Web Push Generator!
         </Heading>
         <a href="https://web-push-generator.herokuapp.com/">Try now!</a>
-      </Slide>
-
-      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'slide']}>
-        <Heading caps size={1}>
-          Questions?
-        </Heading>
       </Slide>
 
       <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
@@ -462,57 +458,20 @@ export default function Presentation() {
           </ListItem>
         </List>
       </Slide>
+
+      <Slide transition={['zoom', 'fade', 'slide']}>
+        <Heading caps size={1} textColor="secondary">
+          Questions?
+        </Heading>
+        <Image src={images.questions} width="400" />
+      </Slide>
+
       <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
           Thank You!
         </Heading>
+        <Image src={images.heart} width="400" />
       </Slide>
-      {/* <Slide bgColor="tertiary" transition={['fade']}> */}
-      {/*  <Heading caps size={6} textColor="primary"> */}
-      {/*    Typography */}
-      {/*  </Heading> */}
-      {/*  <Heading size={1} textColor="secondary"> */}
-      {/*    Heading 1 */}
-      {/*  </Heading> */}
-      {/*  <Heading size={2} textColor="secondary"> */}
-      {/*    Heading 2 */}
-      {/*  </Heading> */}
-      {/*  <Heading size={3} textColor="secondary"> */}
-      {/*    Heading 3 */}
-      {/*  </Heading> */}
-      {/*  <Heading size={4} textColor="secondary"> */}
-      {/*    Heading 4 */}
-      {/*  </Heading> */}
-      {/*  <Heading size={5} textColor="secondary"> */}
-      {/*    Heading 5 */}
-      {/*  </Heading> */}
-      {/*  <Text */}
-      {/*    textColor="secondary" */}
-      {/*  > */}
-      {/*    Standard text */}
-      {/*  </Text> */}
-      {/* </Slide> */}
-      {/* <Slide bgColor="primary" textColor="tertiary" transition={['fade']}> */}
-      {/*  <Heading caps size={6} textColor="secondary"> */}
-      {/*    Standard List */}
-      {/*  </Heading> */}
-      {/*  <List> */}
-      {/*    <ListItem bulletStyle="star">Item 1</ListItem> */}
-      {/*    <ListItem bulletStyle="cross">Item 2</ListItem> */}
-      {/*    <ListItem>Item 3</ListItem> */}
-      {/*    <ListItem>Item 4</ListItem> */}
-      {/*  </List> */}
-      {/* </Slide> */}
-      {/* <Slide bgColor="secondary" textColor="primary" transition={['fade']}> */}
-      {/*  <BlockQuote> */}
-      {/*    <Quote>Example Quote</Quote> */}
-      {/*    <Cite margin="10px 0 0 30px">Author</Cite> */}
-      {/*  </BlockQuote> */}
-      {/* </Slide> */}
-      {/* <Slide> */}
-      {/*  <Image src={images.gif} width={500} /> */}
-      {/*  <Notes>gifs work too</Notes> */}
-      {/* </Slide> */}
     </Deck>
   );
 }
