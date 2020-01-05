@@ -1,13 +1,23 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import {
-  Deck, Heading, Image, List, ListItem, Slide, Text
+  Code, Deck, Heading, Image, List, ListItem, Slide, Text, CodePane,
 } from 'spectacle';
 // eslint-disable-next-line import/no-unresolved
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
   cover: 'cover.jpg',
+  permissionPrompt: 'permission-prompt.png',
+  whatIsWebPush: 'what-is-web-push.gif',
+  isItFree: 'is-it-free.png',
+  isItSafe: 'security.svg',
+  action: 'action.png',
+  howItWorks: 'how-it-works.svg',
+  askForPermission: 'ask-for-permission.svg',
+  curiosity: 'curiosity.png',
+  server: 'server.svg',
+  sendMessage: 'send-message.svg',
 };
 
 require('normalize.css');
@@ -66,43 +76,25 @@ export default function Presentation() {
         <Heading caps size={1} textColor="secondary">
           What is Web Push?
         </Heading>
-      </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={1}>
-          Is it safe?
-        </Heading>
-      </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={3} textColor="tertiary">
-          Is it safe?
-        </Heading>
-        <List>
-          <ListItem>
-            SSL
-          </ListItem>
-          <ListItem>
-            P-256 - elliptic curve Diffie-Hellman (ECDH)
-          </ListItem>
-        </List>
-      </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
-          How it works?
-        </Heading>
+        <Image src={images.whatIsWebPush} width="100%" />
       </Slide>
       <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          How it works?
+          What is Web Push?
         </Heading>
         <List>
           <ListItem>
-            HTTP2
+            Since 2010
           </ListItem>
           <ListItem>
-            PUBLISHER/SUBSCRIBER MODEL
+            Messaging tool
+          </ListItem>
+          <ListItem>
+            Technology
           </ListItem>
         </List>
       </Slide>
+
       <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
         <Heading caps size={1}>
           Who supports it?
@@ -127,19 +119,50 @@ export default function Presentation() {
           </ListItem>
         </List>
       </Slide>
-      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade', 'slide']}>
+
+      <Slide bgColor="primary" textColor="tertiary" transition={['fade', 'slide']}>
         <Heading caps size={1} textColor="secondary">
           Is it free?
         </Heading>
+        <Image src={images.isItFree} width="400" />
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['fade', 'zoom']}>
-        <Heading caps size={1}>
-          Wanna see it in action?
+
+      <Slide bgColor="primary" transition={['fade', 'zoom']}>
+        <Heading caps size={1} textColor="secondary">
+          See it in action
         </Heading>
+        <Image src={images.action} width="400" />
       </Slide>
+
+      <Slide bgColor="primary">
+        <Heading caps size={1} textColor="secondary">
+          Permission first
+        </Heading>
+        <Image src={images.permissionPrompt} width="100%" />
+      </Slide>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={3} textColor="tertiary">
+          Ask for permission strategies
+        </Heading>
+        <List>
+          <ListItem>
+            On page load
+          </ListItem>
+          <ListItem>
+            Delayed time
+          </ListItem>
+          <ListItem>
+            N visits
+          </ListItem>
+          <ListItem>
+            User request
+          </ListItem>
+        </List>
+      </Slide>
+
       <Slide bgColor="tertiary" textColor="tertiary" transition={['zoom', 'fade']}>
         <Heading caps size={1} textColor="secondary">
-          How to enable notifications?
+          Enable notifications?
         </Heading>
         <button onClick={handleAskForPermission} type="button">
           {askForPermissionButtonLabels[permission]}
@@ -150,6 +173,55 @@ export default function Presentation() {
           </Text>
         )}
       </Slide>
+
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          Subscription object
+        </Heading>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ textAlign: 'left' }}>
+            <Code>
+              interface PushSubscription &#123;
+            </Code>
+            <br />
+            <Code>
+              &nbsp;&nbsp;endpoint: string;
+            </Code>
+            <br />
+            <Code>
+              &nbsp;&nbsp;keys: &#123;
+            </Code>
+            <br />
+            <Code>
+              &nbsp;&nbsp;&nbsp;&nbsp;p256dh: string;
+            </Code>
+            <br />
+            <Code>
+              &nbsp;&nbsp;&nbsp;&nbsp;auth: string;
+            </Code>
+            <br />
+            <Code>
+              &nbsp;&nbsp;&#125;;
+            </Code>
+            <br />
+            <Code>
+              &nbsp;&nbsp;expirationDate?: string;
+            </Code>
+            <br />
+            <Code>
+              &#125;
+            </Code>
+          </div>
+        </div>
+      </Slide>
+
+      <Slide bgColor="primary">
+        <Heading caps size={1} textColor="secondary">
+          What just happend?
+        </Heading>
+        <Image src={images.askForPermission} width="100%" />
+      </Slide>
+
       <Slide bgColor="black" textColor="quaternary" transition={['fade', 'slide', 'zoom']}>
         <Heading caps size={1}>
           Simplest notification is title only
@@ -164,6 +236,7 @@ export default function Presentation() {
           SEND
         </button>
       </Slide>
+
       <Slide bgColor="tertiary" textColor="tertiary" transition={['slide', 'fade']}>
         <Heading caps size={1} textColor="secondary">
           Notification body and icon
@@ -177,35 +250,108 @@ export default function Presentation() {
         </select>
         <button type="button">SEND</button>
       </Slide>
-      <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade']}>
-        <Heading caps size={1}>
-          Wee can define actions too!
+
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          Ok, what i can do with it?
         </Heading>
-        <select>
-          <option>Pick first action</option>
-          <option value="1">Rick & Morty</option>
-          <option value="2">Family Guy</option>
-          <option value="2">Bojack Horseman</option>
-        </select>
-        <select>
-          <option>Pick second action</option>
-          <option value="1">Rick & Morty</option>
-          <option value="2">Family Guy</option>
-          <option value="2">Bojack Horseman</option>
-        </select>
-        <button type="button">SEND</button>
+        <Image src={images.curiosity} width="400" />
       </Slide>
+
+      <Slide bgColor="primary">
+        <Heading caps size={1} textColor="secondary">
+          Save it to server for future use
+        </Heading>
+        <Image src={images.server} width="400" />
+      </Slide>
+
+      <Slide bgColor="primary">
+        <Heading caps size={1} textColor="secondary">
+          When notification is send
+        </Heading>
+        <Image src={images.sendMessage} width="100%" />
+      </Slide>
+
+      <Slide bgColor="primary" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          Is it safe?
+        </Heading>
+        <Image src={images.isItSafe} width="400" />
+      </Slide>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={3} textColor="tertiary">
+          Is it safe?
+        </Heading>
+        <List>
+          <ListItem>
+            SSL
+          </ListItem>
+          <ListItem>
+            VAPID
+          </ListItem>
+        </List>
+      </Slide>
+
+      <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={1} textColor="secondary">
+          How it works?
+        </Heading>
+        <Image src={images.howItWorks} width="400" />
+      </Slide>
+      <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
+        <Heading caps size={3} textColor="secondary">
+          How it works?
+        </Heading>
+        <List>
+          <ListItem>
+            HTTP2
+          </ListItem>
+          <ListItem>
+            PUBLISHER/SUBSCRIBER MODEL
+          </ListItem>
+        </List>
+      </Slide>
+
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={1}>
+          Last but not least ...
+        </Heading>
+      </Slide>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={1}>
+          ... how not to annoy people
+        </Heading>
+      </Slide>
+      <Slide bgColor="black" textColor="quaternary" transition={['fade']}>
+        <Heading caps size={3} textColor="tertiary">
+          Do not:
+        </Heading>
+        <List>
+          <ListItem>
+            Ask for permission prematurely
+          </ListItem>
+          <ListItem>
+            Send spam
+          </ListItem>
+          <ListItem>
+            Too often notifications
+          </ListItem>
+        </List>
+      </Slide>
+
       <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'slide']}>
         <Heading caps size={1}>
           Want more? Try my Web Push Generator!
         </Heading>
         <a href="https://web-push-generator.herokuapp.com/">Try now!</a>
       </Slide>
+
       <Slide bgColor="black" textColor="quaternary" transition={['zoom', 'fade', 'slide']}>
         <Heading caps size={1}>
           Questions?
         </Heading>
       </Slide>
+
       <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
           Useful links
@@ -218,6 +364,9 @@ export default function Presentation() {
             <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API">
               Mozzila Notification Api & Support
             </a>
+          </ListItem>
+          <ListItem>
+            <a href="https://developers.google.com/web/fundamentals/push-notifications">Google developers</a>
           </ListItem>
           <ListItem>
             <a href="https://web-push-generator.herokuapp.com/">Web Push Generator</a>
