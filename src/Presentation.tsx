@@ -607,13 +607,13 @@ export default function Presentation() {
 
       <Slide bgColor="primary" transition={['fade']}>
         <Heading fit caps size={2} textColor="secondary">
-          Tips after many adventures
+          Tips after my adventures
         </Heading>
         <Image src={images.tips} width="33%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading fit caps size={3} textColor="secondary">
-          Tips after many adventures
+          Tips after my adventures
         </Heading>
         <List>
           <Appear>
