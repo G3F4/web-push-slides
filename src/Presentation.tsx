@@ -73,14 +73,33 @@ export default function Presentation() {
   const [body, setBody] = useState('');
   const [icon, setIcon] = useState('');
   const [image, setImage] = useState('');
+  const [firstAction, setFirstAction] = useState('');
+  const [secondAction, setSecondAction] = useState('');
   const askForPermissionButtonLabels: Record<NotificationPermission, string> = {
     granted: 'NOTIFICATIONS ENABLED!',
     default: 'ASK FOR PERMISSION',
     denied: 'NOTIFICATIONS DISABLED!',
   };
 
-  function handleSendNotification() {
-    new Notification(title || 'Hello!', { body, icon, image });
+  function getNotificationOptions(): [string, NotificationOptions] {
+    return [
+      title || 'Hello!',
+      {
+        body,
+        icon,
+        image,
+        actions: [
+          { action: firstAction, title: firstAction },
+          { action: secondAction, title: secondAction },
+        ].filter(({ action }) => Boolean(action)),
+      }
+    ];
+  }
+
+  async function handleSendNotification() {
+    const registration = await navigator.serviceWorker.ready;
+
+    await registration.showNotification(...getNotificationOptions());
   }
 
   const handleAskForPermission = async () => {
@@ -403,6 +422,8 @@ export default function Presentation() {
               onChange={(event) => setTitle(event.target.value)}
               placeholder="enter title"
             />
+            <br />
+            <br />
             <button onClick={handleSendNotification}>
               SEND
             </button>
@@ -424,6 +445,8 @@ export default function Presentation() {
               placeholder="enter body"
               onChange={(event) => setBody(event.target.value)}
             />
+            <br />
+            <br />
             <select
               onChange={(event) => setIcon(event.target.value)}
             >
@@ -432,6 +455,8 @@ export default function Presentation() {
                 <option key={value} value={value}>{text}</option>
               ))}
             </select>
+            <br />
+            <br />
             <button onClick={handleSendNotification}>
               SEND
             </button>
@@ -476,6 +501,35 @@ export default function Presentation() {
                 />
               </span>
             </div>
+            <button onClick={handleSendNotification}>
+              SEND
+            </button>
+          </>
+        )}
+      </Slide>
+      <Slide bgColor="tertiary" transition={['fade']}>
+        {permission !== 'granted' ? (
+          <Heading fit caps size={2} textColor="secondary">
+            Notifications are not allowed
+          </Heading>
+        ) : (
+          <>
+            <Heading fit caps size={3} textColor="secondary">
+              Set actions in notification
+            </Heading>
+            <br />
+            <input
+              placeholder="first action"
+              onChange={(event) => setFirstAction(event.target.value)}
+            />
+            <br />
+            <br />
+            <input
+              placeholder="second action"
+              onChange={(event) => setSecondAction(event.target.value)}
+            />
+            <br />
+            <br />
             <button onClick={handleSendNotification}>
               SEND
             </button>
