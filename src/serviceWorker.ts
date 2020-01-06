@@ -95,7 +95,7 @@ export function registerServiceWorker(config?: Config) {
     }
 
     window.addEventListener('load', () => {
-      const swUrl = `/notifications-worker.js`;
+      const swUrl = process.env.NODE_ENV === 'production' ? `/web-push-slides/notifications-worker.js` : `/notifications-worker.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
