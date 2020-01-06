@@ -72,6 +72,7 @@ export default function Presentation() {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [icon, setIcon] = useState('');
+  const [image, setImage] = useState('');
   const askForPermissionButtonLabels: Record<NotificationPermission, string> = {
     granted: 'NOTIFICATIONS ENABLED!',
     default: 'ASK FOR PERMISSION',
@@ -79,7 +80,7 @@ export default function Presentation() {
   };
 
   function handleSendNotification() {
-    new Notification(title || 'Hello!', { body, icon });
+    new Notification(title || 'Hello!', { body, icon, image });
   }
 
   const handleAskForPermission = async () => {
@@ -431,6 +432,50 @@ export default function Presentation() {
                 <option key={value} value={value}>{text}</option>
               ))}
             </select>
+            <button onClick={handleSendNotification}>
+              SEND
+            </button>
+          </>
+        )}
+      </Slide>
+      <Slide bgColor="tertiary" transition={['fade']}>
+        {permission !== 'granted' ? (
+          <Heading fit caps size={2} textColor="secondary">
+            Notifications are not allowed
+          </Heading>
+        ) : (
+          <>
+            <Heading fit caps size={3} textColor="secondary">
+              Image in notification
+            </Heading>
+            <Text>Pick one</Text>
+            <br />
+            <div>
+              <span onClick={() => setImage(images.familyGuy)}>
+                <Image
+                  width="33%"
+                  display="inline"
+                  src={images.familyGuy}
+                  className={image === images.familyGuy ? 'solidBorder' : ''}
+                />
+              </span>
+              <span onClick={() => setImage(images.rickAndMorty)}>
+                <Image
+                  width="33%"
+                  display="inline"
+                  src={images.rickAndMorty}
+                  className={image === images.rickAndMorty ? 'solidBorder' : ''}
+                />
+              </span>
+              <span onClick={() => setImage(images.boJack)}>
+                <Image
+                  width="33%"
+                  display="inline"
+                  src={images.boJack}
+                  className={image === images.boJack ? 'solidBorder' : ''}
+                />
+              </span>
+            </div>
             <button onClick={handleSendNotification}>
               SEND
             </button>
