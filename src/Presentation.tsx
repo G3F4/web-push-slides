@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import {
+  Appear,
   Code, Deck, Heading, Image, List, ListItem, Slide, Text,
 } from 'spectacle';
 // eslint-disable-next-line import/no-unresolved
@@ -15,19 +16,20 @@ const images = {
   action: 'action.png',
   howItWorks: 'how-it-works.svg',
   askForPermission: 'ask-for-permission.svg',
-  askForPermission1: 'ask-for-permission1.svg',
-  askForPermission2: 'ask-for-permission2.svg',
-  askForPermission3: 'ask-for-permission3.svg',
-  askForPermission4: 'ask-for-permission4.svg',
+  askForPermission1: 'ask-for-permission-1.svg',
+  askForPermission2: 'ask-for-permission-2.svg',
+  askForPermission3: 'ask-for-permission-3.svg',
+  askForPermission4: 'ask-for-permission-4.svg',
   curiosity: 'curiosity.png',
   server: 'server.svg',
+  tips: 'tips.gif',
   behaviour: 'behaviour.png',
   sendMessage: 'send-message.svg',
-  sendNotification1: 'send-notification1.svg',
-  sendNotification2: 'send-notification2.svg',
-  sendNotification3: 'send-notification3.svg',
-  sendNotification4: 'send-notification4.svg',
-  sendNotification5: 'send-notification5.svg',
+  sendNotification1: 'send-notification-1.svg',
+  sendNotification2: 'send-notification-2.svg',
+  sendNotification3: 'send-notification-3.svg',
+  sendNotification4: 'send-notification-4.svg',
+  sendNotification5: 'send-notification-5.svg',
   heart: 'heart.png',
   questions: 'questions.svg',
   rickAndMorty: 'rickAndMorty.png',
@@ -92,7 +94,7 @@ export default function Presentation() {
       transitionDuration={1000}
     >
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps fit lineHeight={1} size={1} textColor="secondary">
+        <Heading fit caps lineHeight={1} size={1} textColor="secondary">
           Jak w powiadomienia?
         </Heading>
         <Image src={images.cover} width="100%" />
@@ -102,153 +104,198 @@ export default function Presentation() {
       </Slide>
 
       <Slide bgColor="quaternary" transition={['slide']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           What is Web Push?
         </Heading>
         <Image src={images.whatIsWebPush} width="100%" />
       </Slide>
       <Slide bgColor="quaternary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           What is Web Push?
         </Heading>
         <List>
-          <ListItem bold>
-            Since 2010
-          </ListItem>
-          <ListItem bold>
-            Messaging tool
-          </ListItem>
-          <ListItem bold>
-            Technology
-          </ListItem>
+          <Appear>
+            <ListItem bold>
+              Messaging tool
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
+              Technology
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
+              Since 2010
+            </ListItem>
+          </Appear>
         </List>
       </Slide>
       <Slide bgColor="quaternary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           And what are it&apos;s parts?
         </Heading>
         <List>
-          <ListItem bold>
-            External service from browser provider
-          </ListItem>
-          <ListItem bold>
-            Browser with service worker
-          </ListItem>
-          <ListItem bold>
-            Server application
-          </ListItem>
+          <Appear>
+            <ListItem bold>
+              External service from browser provider
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
+              Browser client
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
+              Service worker
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
+              Server application
+            </ListItem>
+          </Appear>
         </List>
       </Slide>
 
       <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={1}>
+        <Heading caps fit size={2} textColor="tertiary">
           Who supports it?
         </Heading>
       </Slide>
       <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={3} textColor="tertiary">
+        <Heading fit caps size={3} textColor="tertiary">
           Who supports it?
         </Heading>
         <List>
-          <ListItem bold>
+          <Appear>
+            <ListItem bold>
             Chrome and family (mostly)
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Firefox (partial)
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Safari (own API)
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Samsung Internet Browser (all?)
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Others and more supporting in future
-          </ListItem>
+            </ListItem>
+          </Appear>
         </List>
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Is it free?
         </Heading>
         <Image src={images.isItFree} width="33%" />
       </Slide>
       <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           Notification types
         </Heading>
         <List>
-          <ListItem bold>
+          <Appear>
+            <ListItem bold>
             Non-persistent (without service worker)
-            <br />
-            <Code>
+              <br />
+              <Code>
               new Notification(title, options);
-            </Code>
-            <br />
-            <br />
-          </ListItem>
-          <ListItem bold>
+              </Code>
+              <br />
+              <br />
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Persistent
-            <br />
-            <Code>
+              <br />
+              <Code>
               registration.showNotification(title, options);
-            </Code>
-          </ListItem>
+              </Code>
+            </ListItem>
+          </Appear>
         </List>
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           How it works?
         </Heading>
         <Image src={images.howItWorks} width="33%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           How it works?
         </Heading>
         <List>
-          <ListItem bold>
+          <Appear>
+            <ListItem bold>
             HTTP2
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Service worker
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Publisher/Subscriber model
-          </ListItem>
+            </ListItem>
+          </Appear>
         </List>
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Permission first
         </Heading>
         <Image src={images.permissionPrompt} width="100%" />
       </Slide>
       <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           Ask for permission strategies
         </Heading>
         <List>
-          <ListItem bold>
+          <Appear>
+            <ListItem bold>
             On page load
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Delayed time
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             N visits
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             User request
-          </ListItem>
+            </ListItem>
+          </Appear>
         </List>
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Enable notifications?
         </Heading>
         <br />
@@ -268,41 +315,28 @@ export default function Presentation() {
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
-          What just happened?
-        </Heading>
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           What just happened?
         </Heading>
         <br />
-        <Image src={images.askForPermission1} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          What just happened?
-        </Heading>
-        <br />
-        <Image src={images.askForPermission2} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          What just happened?
-        </Heading>
-        <br />
-        <Image src={images.askForPermission3} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          What just happened?
-        </Heading>
-        <br />
-        <Image src={images.askForPermission4} width="100%" />
+        <div>
+          <Appear>
+            <Image display="inline" src={images.askForPermission1} width="25%" />
+          </Appear>
+          <Appear>
+            <Image display="inline" src={images.askForPermission2} width="25%" />
+          </Appear>
+          <Appear>
+            <Image display="inline" src={images.askForPermission3} width="25%" />
+          </Appear>
+          <Appear>
+            <Image display="inline" src={images.askForPermission4} width="25%" />
+          </Appear>
+        </div>
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           Subscription object
         </Heading>
         <br />
@@ -344,7 +378,7 @@ export default function Presentation() {
       </Slide>
 
       <Slide bgColor="quaternary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           See it in action
         </Heading>
         <Image src={images.action} width="33%" />
@@ -352,13 +386,15 @@ export default function Presentation() {
 
       <Slide bgColor="tertiary" textColor="quaternary" transition={['fade']}>
         {permission !== 'granted' ? (
-          <Heading caps size={1} textColor="secondary">
+          <Heading fit caps size={2} textColor="secondary">
             Notifications are not allowed
           </Heading>
         ) : (
           <>
-            <Heading caps size={3} textColor="secondary">
-              Simplest notification is title only
+            <Heading fit caps size={3} textColor="secondary">
+              Simplest notification
+              <br />
+              is title only
             </Heading>
             <br />
             <input
@@ -374,12 +410,12 @@ export default function Presentation() {
       </Slide>
       <Slide bgColor="tertiary" transition={['fade']}>
         {permission !== 'granted' ? (
-          <Heading caps size={1} textColor="secondary">
+          <Heading fit caps size={2} textColor="secondary">
             Notifications are not allowed
           </Heading>
         ) : (
           <>
-            <Heading caps size={3} textColor="secondary">
+            <Heading fit caps size={3} textColor="secondary">
               Notification body and icon
             </Heading>
             <br />
@@ -403,13 +439,13 @@ export default function Presentation() {
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Notifications behaviours
         </Heading>
         <Image src={images.behaviour} width="33%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           Notifications behaviours
         </Heading>
         <List>
@@ -435,20 +471,20 @@ export default function Presentation() {
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Ok, what i can do with it?
         </Heading>
         <Image src={images.curiosity} width="33%" />
       </Slide>
 
       <Slide bgColor="quaternary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Save it to server for future use
         </Heading>
         <Image src={images.server} width="33%" />
       </Slide>
       <Slide bgColor="quaternary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Usages
         </Heading>
         <List>
@@ -468,104 +504,103 @@ export default function Presentation() {
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
-          Sending notification
-        </Heading>
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           Sending notification
         </Heading>
         <br />
-        <Image src={images.sendNotification1} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          Sending notification
-        </Heading>
-        <br />
-        <Image src={images.sendNotification2} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          Sending notification
-        </Heading>
-        <br />
-        <Image src={images.sendNotification3} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          Sending notification
-        </Heading>
-        <br />
-        <Image src={images.sendNotification4} width="100%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
-          Sending notification
-        </Heading>
-        <br />
-        <Image src={images.sendNotification5} width="100%" />
+        <div>
+          <Appear>
+            <Image display="inline" src={images.sendNotification1} width="20%" />
+          </Appear>
+          <Appear>
+            <Image display="inline" src={images.sendNotification2} width="20%" />
+          </Appear>
+          <Appear>
+            <Image display="inline" src={images.sendNotification3} width="20%" />
+          </Appear>
+          <Appear>
+            <Image display="inline" src={images.sendNotification4} width="20%" />
+          </Appear>
+          <Appear>
+            <Image display="inline" src={images.sendNotification5} width="20%" />
+          </Appear>
+        </div>
       </Slide>
 
       <Slide bgColor="quaternary" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           What about security?
         </Heading>
         <Image src={images.isItSafe} width="33%" />
       </Slide>
       <Slide bgColor="quaternary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           What about security?
         </Heading>
         <List>
-          <ListItem bold>
+          <Appear>
+            <ListItem bold>
             SSL
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             VAPID
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Time expiration
-          </ListItem>
+            </ListItem>
+          </Appear>
+          <br />
+          <br />
+          <br />
+          <br />
         </List>
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Tips after many adventures
         </Heading>
-        <Image src={images.server} width="33%" />
+        <Image src={images.tips} width="33%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           Tips after many adventures
         </Heading>
         <List>
-          <ListItem bold>
+          <Appear>
+            <ListItem bold>
             Keep stored subscriptions synced with service worker
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Browser security changes over time
-          </ListItem>
-          <ListItem bold>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem bold>
             Push services behaviour differs
-          </ListItem>
+            </ListItem>
+          </Appear>
         </List>
       </Slide>
 
       <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={1}>
+        <Heading fit caps size={2} textColor="tertiary">
           Last but not least ...
         </Heading>
       </Slide>
       <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={1}>
+        <Heading fit caps size={2} textColor="tertiary">
           ... how not to annoy people
         </Heading>
       </Slide>
       <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
-        <Heading caps size={3} textColor="tertiary">
+        <Heading fit caps size={3} textColor="tertiary">
           Do not:
         </Heading>
         <List>
@@ -582,14 +617,16 @@ export default function Presentation() {
       </Slide>
 
       <Slide bgColor="quaternary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
-          Want more? Try my Web Push Generator!
+        <Heading fit caps size={2} textColor="secondary">
+          Want more? Try my
+          <br />
+          Web Push Generator!
         </Heading>
         <a href="https://web-push-generator.herokuapp.com/">Try now!</a>
       </Slide>
 
       <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
-        <Heading caps size={3} textColor="secondary">
+        <Heading fit caps size={3} textColor="secondary">
           Useful links
         </Heading>
         <List>
@@ -614,14 +651,14 @@ export default function Presentation() {
       </Slide>
 
       <Slide transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Questions?
         </Heading>
         <Image src={images.questions} width="33%" />
       </Slide>
 
       <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
-        <Heading caps size={1} textColor="secondary">
+        <Heading fit caps size={2} textColor="secondary">
           Thank You!
         </Heading>
         <Image src={images.heart} width="33%" />
