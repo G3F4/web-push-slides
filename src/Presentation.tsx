@@ -9,7 +9,7 @@ import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
   cover: 'cover.jpg',
-  whatIsWebPush: 'what-is-web-push2.gif',
+  whatIsWebPush: 'web-push-notifications.gif',
   permissionPrompt: 'permission-prompt.png',
   isItFree: 'is-it-free.png',
   isItSafe: 'security.svg',
@@ -31,7 +31,7 @@ const images = {
   sendNotification4: 'send-notification-4.svg',
   sendNotification5: 'send-notification-5.svg',
   heart: 'heart.png',
-  questions: 'questions.svg',
+  questions: 'questions.png',
   rickAndMorty: 'rickAndMorty.png',
   familyGuy: 'familyGuy.png',
   boJack: 'boJack.png',
@@ -179,13 +179,14 @@ export default function Presentation() {
         </List>
       </Slide>
 
-      <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
-        <Heading caps fit size={2} textColor="tertiary">
-          Who supports it?
+      <Slide bgColor="tertiary" transition={['fade']}>
+        <Heading fit caps size={2} textColor="secondary">
+          Is it free?
         </Heading>
+        <Image src={images.isItFree} width="33%" />
       </Slide>
-      <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
-        <Heading fit caps size={3} textColor="tertiary">
+      <Slide bgColor="tertiary" transition={['fade']}>
+        <Heading fit caps size={3} textColor="secondary">
           Who supports it?
         </Heading>
         <List>
@@ -215,13 +216,6 @@ export default function Presentation() {
             </ListItem>
           </Appear>
         </List>
-      </Slide>
-
-      <Slide bgColor="tertiary" transition={['fade']}>
-        <Heading fit caps size={2} textColor="secondary">
-          Is it free?
-        </Heading>
-        <Image src={images.isItFree} width="33%" />
       </Slide>
       <Slide bgColor="tertiary" transition={['fade']}>
         <Heading fit caps size={3} textColor="secondary">
