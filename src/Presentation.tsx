@@ -30,7 +30,21 @@ const images = {
   sendNotification5: 'send-notification5.svg',
   heart: 'heart.png',
   questions: 'questions.svg',
+  rickAndMorty: 'rickAndMorty.png',
+  familyGuy: 'familyGuy.png',
+  boJack: 'boJack.png',
 };
+
+const iconOptions = [{
+  text: 'Rick & Morty',
+  value: images.rickAndMorty,
+}, {
+  text: 'Family Guy',
+  value: images.familyGuy,
+}, {
+  text: 'BoJack Horseman',
+  value: images.boJack,
+}];
 
 require('normalize.css');
 
@@ -51,18 +65,21 @@ async function askForPermission() {
   return Notification.requestPermission();
 }
 
-function showNotification(title: string, options?: NotificationOptions) {
-  new Notification(title, options);
-}
-
 export default function Presentation() {
   const [permission, setPermission] = useState(Notification.permission);
   const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [icon, setIcon] = useState('');
   const askForPermissionButtonLabels: Record<NotificationPermission, string> = {
     granted: 'NOTIFICATIONS ENABLED!',
     default: 'ASK FOR PERMISSION',
     denied: 'NOTIFICATIONS DISABLED!',
   };
+
+  function handleSendNotification() {
+    new Notification(title || 'Hello!', { body, icon });
+  }
+
   const handleAskForPermission = async () => {
     const permissionResult = await askForPermission();
 
@@ -252,33 +269,33 @@ export default function Presentation() {
 
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={1} textColor="secondary">
-          What just happend?
+          What just happened?
         </Heading>
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          What just happend?
+          What just happened?
         </Heading>
         <br />
         <Image src={images.askForPermission1} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          What just happend?
+          What just happened?
         </Heading>
         <br />
         <Image src={images.askForPermission2} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          What just happend?
+          What just happened?
         </Heading>
         <br />
         <Image src={images.askForPermission3} width="100%" />
       </Slide>
       <Slide bgColor="primary" transition={['fade']}>
         <Heading caps size={3} textColor="secondary">
-          What just happend?
+          What just happened?
         </Heading>
         <br />
         <Image src={images.askForPermission4} width="100%" />
@@ -344,13 +361,12 @@ export default function Presentation() {
               Simplest notification is title only
             </Heading>
             <br />
-            <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="enter title" />
-            <button
-              type="button"
-              onClick={() => {
-                showNotification(title);
-              }}
-            >
+            <input
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+              placeholder="enter title"
+            />
+            <button onClick={handleSendNotification}>
               SEND
             </button>
           </>
@@ -367,14 +383,21 @@ export default function Presentation() {
               Notification body and icon
             </Heading>
             <br />
-            <input placeholder="enter body" />
-            <select>
+            <input
+              placeholder="enter body"
+              onChange={(event) => setBody(event.target.value)}
+            />
+            <select
+              onChange={(event) => setIcon(event.target.value)}
+            >
               <option>Pick icon</option>
-              <option value="1">Rick & Morty</option>
-              <option value="2">Family Guy</option>
-              <option value="2">Bojack Horseman</option>
+              {iconOptions.map(({ text, value }) => (
+                <option key={value} value={value}>{text}</option>
+              ))}
             </select>
-            <button type="button">SEND</button>
+            <button onClick={handleSendNotification}>
+              SEND
+            </button>
           </>
         )}
       </Slide>
