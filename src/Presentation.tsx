@@ -97,9 +97,17 @@ export default function Presentation() {
   }
 
   async function handleSendNotification() {
-    const registration = await navigator.serviceWorker.ready;
-
-    await registration.showNotification(...getNotificationOptions());
+    if (window.Notification) {
+      try {
+        const registration = await navigator.serviceWorker.ready;
+  
+        await registration.showNotification(...getNotificationOptions());
+      } catch (e) {
+        new Notification(...getNotificationOptions());
+      }
+    } else {
+      new Notification(...getNotificationOptions());
+    }
   }
 
   const handleAskForPermission = async () => {
