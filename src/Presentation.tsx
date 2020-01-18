@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useState } from 'react';
+import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
 import {
   Appear,
   Code, Deck, Heading, Image, List, ListItem, Slide, Text,
@@ -67,6 +67,28 @@ async function askForPermission() {
   return Notification.requestPermission();
 }
 
+function LazyList({ items }: { items: string[] }) {
+  return (
+    <List>
+      {items.map(text => (
+        <Appear key={text}>
+          <ListItem bold textSize="3rem">
+            {text}
+          </ListItem>
+        </Appear>
+      ))}
+    </List>
+  );
+}
+
+function Input(props: { value: string; onChange: ChangeEvent<HTMLInputElement>; placeholder: string }) {
+  return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
+    <input {...props} style={{ fontSize: '3rem' }} />
+  )
+}
+
 export default function Presentation() {
   const [permission, setPermission] = useState(Notification.permission);
   const [title, setTitle] = useState('');
@@ -100,7 +122,7 @@ export default function Presentation() {
     if (window.Notification) {
       try {
         const registration = await navigator.serviceWorker.ready;
-  
+
         await registration.showNotification(...getNotificationOptions());
       } catch (e) {
         new Notification(...getNotificationOptions());
@@ -120,12 +142,14 @@ export default function Presentation() {
     <Deck
       theme={theme}
       transitionDuration={1000}
+      contentWidth="90%"
+      contentHeight="90%"
     >
       <Slide bgColor="primary" transition={['fade']}>
         <Heading fit caps lineHeight={1} size={1} textColor="secondary">
           Jak w powiadomienia?
         </Heading>
-        <Image src={images.cover} width="100%" />
+        <Image src={images.cover} width="80%" height="50%" />
         <Text bold fit margin="10px 0 0" textColor="tertiary">
           Czyli trochę o technologii WebPush
         </Text>
@@ -135,95 +159,47 @@ export default function Presentation() {
         <Heading fit caps size={2} textColor="secondary">
           What is Web Push?
         </Heading>
-        <Image src={images.whatIsWebPush} width="100%" />
+        <Image src={images.whatIsWebPush} width="80%" height="50%" />
       </Slide>
       <Slide bgColor="quaternary" transition={['fade']}>
         <Heading fit caps size={3} textColor="secondary">
           What is Web Push?
         </Heading>
-        <List>
-          <Appear>
-            <ListItem bold>
-              Messaging tool
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-              Technology
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-              Since 2010
-            </ListItem>
-          </Appear>
-        </List>
+        <LazyList items={['Messaging tool', 'Technology', 'Since 2010', ]} />
       </Slide>
       <Slide bgColor="quaternary" transition={['fade']}>
         <Heading fit caps size={3} textColor="secondary">
           And what are it&apos;s parts?
         </Heading>
-        <List>
-          <Appear>
-            <ListItem bold>
-              External service from browser provider
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-              Browser client
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-              Service worker
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-              Server application
-            </ListItem>
-          </Appear>
-        </List>
+        <LazyList
+          items={[
+            'External service',
+            'Browser client',
+            'Service worker',
+            'Server application',
+          ]}
+        />
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
         <Heading fit caps size={2} textColor="secondary">
           Is it free?
         </Heading>
-        <Image src={images.isItFree} width="33%" />
+        <Image src={images.isItFree} width="40%" />
       </Slide>
       <Slide bgColor="tertiary" transition={['fade']}>
         <Heading fit caps size={3} textColor="secondary">
           Who supports it?
         </Heading>
-        <List>
-          <Appear>
-            <ListItem bold>
-            Chrome and family (mostly)
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Firefox (partial)
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Safari (own API)
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Samsung Internet Browser (all?)
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Others and more supporting in future
-            </ListItem>
-          </Appear>
-        </List>
+        <LazyList
+          items={[
+            'Chrome and family (mostly)',
+            'Firefox (partial)',
+            'Safari (own API)',
+            'Samsung Internet Browser (all?)',
+            'Others'
+          ]}
+        />
       </Slide>
       <Slide bgColor="tertiary" transition={['fade']}>
         <Heading fit caps size={3} textColor="secondary">
@@ -232,7 +208,7 @@ export default function Presentation() {
         <List>
           <Appear>
             <ListItem bold>
-            Non-persistent (without service worker)
+            Non-persistent
               <br />
               <Code>
               new Notification(title, options);
@@ -263,23 +239,7 @@ export default function Presentation() {
         <Heading fit caps size={3} textColor="secondary">
           How it works?
         </Heading>
-        <List>
-          <Appear>
-            <ListItem bold>
-            HTTP2
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Service worker
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Publisher/Subscriber model
-            </ListItem>
-          </Appear>
-        </List>
+        <LazyList items={['HTTP2', 'Service worker', 'Publisher/Subscriber model', ]} />
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
@@ -292,28 +252,7 @@ export default function Presentation() {
         <Heading fit caps size={3} textColor="secondary">
           Ask for permission strategies
         </Heading>
-        <List>
-          <Appear>
-            <ListItem bold>
-            On page load
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Delayed time
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            N visits
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            User request
-            </ListItem>
-          </Appear>
-        </List>
+        <LazyList items={['On page load', 'Delayed time', 'N visits',  'User request', ]} />
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
@@ -419,8 +358,10 @@ export default function Presentation() {
               is title only
             </Heading>
             <br />
-            <input
+            <Input
               value={title}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+              // @ts-ignore
               onChange={(event) => setTitle(event.target.value)}
               placeholder="enter title"
             />
@@ -443,8 +384,10 @@ export default function Presentation() {
               Notification body and icon
             </Heading>
             <br />
-            <input
+            <Input
               placeholder="enter body"
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+              // @ts-ignore
               onChange={(event) => setBody(event.target.value)}
             />
             <br />
@@ -476,7 +419,6 @@ export default function Presentation() {
               Image in notification
             </Heading>
             <Text>Pick one</Text>
-            <br />
             <div>
               <span onClick={() => setImage(images.familyGuy)}>
                 <Image
@@ -520,15 +462,19 @@ export default function Presentation() {
               Set actions in notification
             </Heading>
             <br />
-            <input
+            <Input
               placeholder="first action"
-              onChange={(event) => setFirstAction(event.target.value)}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+              // @ts-ignore
+              onChange={(event: any) => setFirstAction(event.target.value)}
             />
             <br />
             <br />
-            <input
+            <Input
               placeholder="second action"
-              onChange={(event) => setSecondAction(event.target.value)}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+              // @ts-ignore
+              onChange={(event: any) => setSecondAction(event.target.value)}
             />
             <br />
             <br />
@@ -549,26 +495,15 @@ export default function Presentation() {
         <Heading fit caps size={3} textColor="secondary">
           Notifications behaviours
         </Heading>
-        <List>
-          <ListItem bold>
-            Notification click
-          </ListItem>
-          <ListItem bold>
-            Action click
-          </ListItem>
-          <ListItem bold>
-            Refresh hanging notification
-          </ListItem>
-          <ListItem bold>
-            Silent
-          </ListItem>
-          <ListItem bold>
-            Vibrations
-          </ListItem>
-          <ListItem bold>
-            Requiring interaction
-          </ListItem>
-        </List>
+        <LazyList
+          items={[
+            'Notification click',
+            'Action click',
+            'Refresh hanging notification',
+            'Silent',
+            'Vibrations',
+            'Requiring interaction',
+          ]} />
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
@@ -588,20 +523,7 @@ export default function Presentation() {
         <Heading fit caps size={2} textColor="secondary">
           Usages
         </Heading>
-        <List>
-          <ListItem bold>
-            Notify about new content
-          </ListItem>
-          <ListItem bold>
-            Increase engagement
-          </ListItem>
-          <ListItem bold>
-            Alerts
-          </ListItem>
-          <ListItem bold>
-            Advertisement
-          </ListItem>
-        </List>
+        <LazyList items={['Notify about new content', 'Increase engagement', 'Alerts',  'Advertisement', ]} />
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
@@ -638,27 +560,7 @@ export default function Presentation() {
         <Heading fit caps size={3} textColor="secondary">
           What about security?
         </Heading>
-        <List>
-          <Appear>
-            <ListItem bold>
-            SSL
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            VAPID
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Time expiration
-            </ListItem>
-          </Appear>
-          <br />
-          <br />
-          <br />
-          <br />
-        </List>
+        <LazyList items={['SSL', 'VAPID', 'Time expiration', ]} />
       </Slide>
 
       <Slide bgColor="primary" transition={['fade']}>
@@ -671,23 +573,13 @@ export default function Presentation() {
         <Heading fit caps size={3} textColor="secondary">
           Tips after my adventures
         </Heading>
-        <List>
-          <Appear>
-            <ListItem bold>
-            Keep stored subscriptions synced with service worker
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Browser security changes over time
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem bold>
-            Push services behaviour differs
-            </ListItem>
-          </Appear>
-        </List>
+        <LazyList
+          items={[
+            'Keep stored subscriptions synced with service worker',
+            'Browser security changes over time',
+            'Push services behaviour differs',
+          ]}
+        />
       </Slide>
 
       <Slide bgColor="secondary" textColor="quaternary" transition={['fade']}>
@@ -704,17 +596,7 @@ export default function Presentation() {
         <Heading fit caps size={3} textColor="tertiary">
           Do not:
         </Heading>
-        <List>
-          <ListItem bold>
-            Ask for permission prematurely
-          </ListItem>
-          <ListItem bold>
-            Send spam
-          </ListItem>
-          <ListItem bold>
-            Notify too often
-          </ListItem>
-        </List>
+        <LazyList items={['Ask for permission prematurely', 'Send spam', 'Notify too often', ]} />
       </Slide>
 
       <Slide bgColor="quaternary" transition={['fade']}>
@@ -724,6 +606,13 @@ export default function Presentation() {
           Web Push Generator!
         </Heading>
         <a href="https://web-push-generator.herokuapp.com/">Try now!</a>
+      </Slide>
+
+      <Slide transition={['fade']}>
+        <Heading fit caps size={2} textColor="secondary">
+          Questions?
+        </Heading>
+        <Image src={images.questions} width="33%" />
       </Slide>
 
       <Slide bgColor="primary" textColor="tertiary" transition={['fade']}>
@@ -749,13 +638,6 @@ export default function Presentation() {
             <a href="https://github.com/G3F4/web-push-generator">Web Push Generator repo</a>
           </ListItem>
         </List>
-      </Slide>
-
-      <Slide transition={['fade']}>
-        <Heading fit caps size={2} textColor="secondary">
-          Questions?
-        </Heading>
-        <Image src={images.questions} width="33%" />
       </Slide>
 
       <Slide bgColor="tertiary" textColor="tertiary" transition={['fade']}>
