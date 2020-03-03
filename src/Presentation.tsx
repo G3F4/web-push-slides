@@ -167,19 +167,6 @@ export default function Presentation() {
         </Heading>
         <LazyList items={['Messaging tool', 'Technology', 'Since 2010', ]} />
       </Slide>
-      <Slide bgColor="quaternary" transition={['fade']}>
-        <Heading fit caps size={3} textColor="secondary">
-          And what are it&apos;s parts?
-        </Heading>
-        <LazyList
-          items={[
-            'External service',
-            'Browser client',
-            'Service worker',
-            'Server application',
-          ]}
-        />
-      </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
         <Heading fit caps size={2} textColor="secondary">
@@ -227,19 +214,6 @@ export default function Presentation() {
             </ListItem>
           </Appear>
         </List>
-      </Slide>
-
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading fit caps size={2} textColor="secondary">
-          How it works?
-        </Heading>
-        <Image src={images.howItWorks} width="33%" />
-      </Slide>
-      <Slide bgColor="primary" transition={['fade']}>
-        <Heading fit caps size={3} textColor="secondary">
-          How it works?
-        </Heading>
-        <LazyList items={['HTTP2', 'Service worker', 'Publisher/Subscriber model', ]} />
       </Slide>
 
       <Slide bgColor="tertiary" transition={['fade']}>
